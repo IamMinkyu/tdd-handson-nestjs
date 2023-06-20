@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppDataSource } from './config/db/data-source';
 import { OrdersModule } from './orders/orders.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [

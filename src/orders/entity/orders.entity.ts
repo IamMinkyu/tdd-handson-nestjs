@@ -1,5 +1,6 @@
 
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
+import { v1 as uuid } from 'uuid';
 
 export enum OrderStatus  {
     Pending,
@@ -11,7 +12,7 @@ export enum OrderStatus  {
 @Entity()
 export class Orders {
     @PrimaryGeneratedColumn()
-    id: string
+    id: string;
 
     @Column()
     sequence: number

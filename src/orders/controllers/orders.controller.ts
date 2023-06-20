@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, HttpCode, NotFoundException, Param, Patch, Post } from '@nestjs/common';
-import { Orders } from './entity/orders.entity';
+import { Orders } from '../entity/orders.entity';
 import { ApiParam } from '@nestjs/swagger';
-import { OrdersService } from './orders.service';
+import { OrdersService } from '../orders.service';
 
 @Controller('orders')
 export class OrdersController {
