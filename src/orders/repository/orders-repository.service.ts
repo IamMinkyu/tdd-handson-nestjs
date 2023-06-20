@@ -1,12 +1,12 @@
 import "reflect-metadata";
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { DataSource, Repository } from 'typeorm';
-import { Orders } from './entity/orders.entity';
+import { Orders } from '../entity/orders.entity';
 import { IOrderRepository } from './order-repository.interface';
 import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
-export class OrdersService implements IOrderRepository {
+export class OrdersRepositoryService implements IOrderRepository {
     
     
     constructor(@InjectRepository(Orders) private readonly orderRepository: Repository<Orders>) { }
