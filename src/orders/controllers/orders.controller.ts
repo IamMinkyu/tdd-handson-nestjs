@@ -1,20 +1,25 @@
 import { Body, Controller, Delete, Get, HttpCode, NotFoundException, Param, Patch, Post } from '@nestjs/common';
 import { Orders } from '../entity/orders.entity';
 import { ApiParam } from '@nestjs/swagger';
-import { OrdersRepositoryService } from '../repository/orders-repository.service';
+import { OrdersService } from '../repository/orders.service';
 
 @Controller('orders')
 export class OrdersController {
 
-    constructor(private readonly orderRepository: OrdersRepositoryService) { }
+    constructor(private readonly orderRepository: OrdersService) { }
     @Get()
     async getAllOrders(): Promise<Orders[]> {
         return await this.orderRepository.find();
     }
 
     @Get(':id')
-    async getOrderDetail(@Param() params: any): Promise<Orders> {
-        return await this.orderRepository.findOne(params.id);
+    @ApiParam({
+        name: 'id',
+        type: 'string'
+    })
+    async getOrderDetail(@Param() param: any): Promise<Orders> {
+        const orderId = param.id;
+        return await this.orderRepository.findOne(orderId);
     }
 
     @Post()

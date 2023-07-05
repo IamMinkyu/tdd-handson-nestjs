@@ -10,7 +10,8 @@ import { SellersModule } from './sellers/sellers.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot(AppDataSource.options), // In production use false
-    OrdersModule, SellersModule,
+    OrdersModule, 
+    SellersModule,
   ],
   controllers: [AppController],
   providers: [AppService]

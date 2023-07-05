@@ -20,17 +20,17 @@ export class Orders {
     @Column()
     userId: string
 
-    @Column()
-    shopId: string
+    // @Column()
+    // shopId: string
     
     @Column()
     shopName: string
 
-    @Column()
-    itemId: string
+    // @Column()
+    // itemId: string
 
-    @Column()
-    price: number
+    // @Column()
+    // price: number
 
     @Column({
         type: "int",
@@ -39,18 +39,18 @@ export class Orders {
     })
     status: OrderStatus
 
-    @Column()
-    paymentTransactionId: string
+    // @Column()
+    // paymentTransactionId: string
 
-    @Column()
-    placedAtUtc: Date
+    // @Column()
+    // placedAtUtc: Date
 
-    @Column()
-    startedAtUtc?: Date
+    // @Column()
+    // startedAtUtc?: Date
 
-    @Column()
-    paidAtUtc?: Date
+    // @Column()
+    // paidAtUtc?: Date
     
-    @Column()
-    shippedAtUtc: Date;
+    // @Column()
+    // shippedAtUtc: Date;
 }

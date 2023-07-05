@@ -1,5 +1,5 @@
 import { Module } from "@nestjs/common";
-import { Orders } from "src/orders/entity/orders.entity";
+import { OrderStatus, Orders } from "src/orders/entity/orders.entity";
 import { DataSource } from "typeorm";
 
 
@@ -15,8 +15,15 @@ export const AppDataSource = new DataSource({
    });
 
 AppDataSource.initialize()
-    .then(() => {
+    .then((db) => {
         console.log('db connection success!');
+        const orderRepository = db.manager.getRepository(Orders);
+        let order = new Orders(); 
+        order.sequence = 1;
+        order.userId = 'user-001';
+        order.shopName = '흑심돈까스';
+        order.status = OrderStatus.AwaitingPayment;
+        orderRepository.save(order);
     })
     .catch((err) => {
         console.log('db connection failed');
